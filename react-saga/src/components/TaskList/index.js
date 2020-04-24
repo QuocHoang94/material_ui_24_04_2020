@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import TaskItem from '../TaskItem';
 class TaskList extends Component {
     render() {
         const { classes,status,task } = this.props;
@@ -19,22 +20,7 @@ class TaskList extends Component {
                     task.map(task => {
                         const { title } = task;
                         return (
-                            <Card key={task.id} className={classes.card}>
-                                <CardContent>
-                                    <Grid container justify="space-between">
-                                        <Grid item md={8}>
-                                            {title}
-                                        </Grid>
-                                        <Grid item md={4}>
-                                            {status.label}
-                                        </Grid>
-                                    </Grid>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small"></Button>
-                                </CardActions>
-                            </Card>
-
+                           <TaskItem task={task} status={status} key={task.id}/>
                         )
                     })
                 }</div>
