@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
 import { STATUS } from '../../constants';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+
+import TaskList from '../../components/TaskList';
+
 const listTask = [
     { id: 1, title: "Readboook", description: "Read material book", status: 0 },
     { id: 2, title: "Watching movie", description: "on NetFlix", status: 2 },
@@ -22,31 +22,8 @@ class TaskBoard extends Component {
                 {
                     STATUS.map((status, index) => {
                         const taskFilter = listTask.filter(task => task.status === status.value)
-                        return (
-                            <Grid key={index} item md={4} xs={12}>
-                                <div className={classes.status}>{status.label}</div>
-                                <div className={classes.warpperListTask}>{
-                                    taskFilter.map(task => {
-                                        return (
-                                            <Card key={task.id} className={classes.card}>
-                                                <CardContent>
-                                                    <Grid container justify="space-between">
-                                                        <Grid item md={8}>
-                                                            
-                                                        </Grid>
-                                                        <Grid item md={4}></Grid>
-                                                    </Grid>
-                                                </CardContent>
-                                                <CardActions>
-                                                    <Button size="small"></Button>
-                                                </CardActions>
-                                            </Card>
-                                            
-                                        )
-                                    })
-                                }</div>
-                            </Grid>
-                        )
+                        return  <TaskList task={taskFilter} status= {status}/>
+                        
                     })
                 }
             </Grid>
