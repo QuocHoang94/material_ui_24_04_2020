@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 class TaskForm extends Component {
     render() {
         return (
-            <Dialog open={true} aria-labelledby="form-dialog-title">
+            <Dialog open={false} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Them moi cong viec</DialogTitle>
                 <DialogContent>
                     <TextField
